@@ -7,7 +7,7 @@ typedef enum {
 	OP_RETURN,
 } OpCode;
 
-typedef struct {
+typedef struct { //dynamic arr as a wrapper to store bytes 
 	int count;
 	int capacity;
 	uint8_t* code; //ptr to the array
