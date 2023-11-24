@@ -1,7 +1,8 @@
 CC = clang
 CFLAGS = -Wall -Wextra -g
 TARGET = clox
-SRCS = $(wildcard *.c)
+SRCDIR = src
+SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(SRCS:.c=.o)
 
 all : $(TARGET)
