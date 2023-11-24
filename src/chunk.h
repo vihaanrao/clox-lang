@@ -14,5 +14,6 @@ typedef struct { //dynamic arr as a wrapper to store bytes
 } Chunk;
 
 void init_chunk(Chunk* chunk);
+void free_chunk(Chunk* chunk);
 void write_chunk(Chunk* chunk, uint8_t byte);
 #endif 

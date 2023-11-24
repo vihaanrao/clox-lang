@@ -7,6 +7,7 @@ void* reallocate(void* pointer, size_t old_size, size_t new_size) {
 		return NULL;
 	}
 
-	void* result = realloc(pointer, new_size);
+	void* result = realloc(pointer, new_size); //when old_size != 0 && new_size != 0, realloc resize previously allocated blocks
+	if (result == NULL) exit(1); //if not enough memory, handle allocation failure by aborting
 	return result;
 }
