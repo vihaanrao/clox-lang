@@ -9,6 +9,7 @@
 
 #define GROW_ARRAY(type, pointer, old_count, new_count) \
     (type*)reallocate(pointer, sizeof(type) * (old_count), sizeof(type) * (new_count)) //macro takes care of casting void* from reallocate to ptr of right type
+// ohhh so that's how that works
 
 #define FREE_ARRAY(type, pointer, old_count) \
     reallocate(pointer, sizeof(type) * (old_count), 0)
@@ -23,4 +24,5 @@ old_size 	new_size		Operation
 */
 
 void* reallocate(void* pointer, size_t old_size, size_t new_size); //routing dynamic memory ops through single fn
+
 #endif 

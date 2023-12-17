@@ -13,7 +13,7 @@ void disassemble_chunk(Chunk *chunk, const char *name) {
 }
 
 int disassemble_instruction(Chunk* chunk, int offset) {
-  printf("%04d", offset);
+  printf("%04d ", offset);
 
   uint8_t instruction = chunk->code[offset];
   switch (instruction) {
