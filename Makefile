@@ -1,17 +1,22 @@
+
 CC = clang
 CFLAGS = -Wall -Wextra -g
-TARGET = clox
+TARGET = bin/clox
 SRCDIR = src
+BINDIR = bin
 SRCS = $(wildcard $(SRCDIR)/*.c)
-OBJS = $(SRCS:.c=.o)
+OBJS = $(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRCS))
 
-all : $(TARGET)
+all: $(TARGET)
 
-$(TARGET) : $(OBJS)
+$(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-%.o: %.c
+$(BINDIR)/%.o: $(SRCDIR)/%.c | $(BINDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BINDIR):
+	mkdir -p $(BINDIR)
 
 clean:
 	rm -f $(TARGET) $(OBJS)
